@@ -40,7 +40,111 @@ content:
         default: false
       - name: body
         label: Body
-        type: rich-text
+        type: block
+        list: true
+        blockKey: _block
+        blocks:
+          - name: paragraph_with_image
+            label: Paragraph with Image
+            fields:
+              - name: src
+                label: Image Source
+                type: image
+              - name: alt
+                label: Image Alt Text
+                type: string
+              - name: width
+                label: Image Width
+                type: number
+                default: 800
+              - name: height
+                label: Image Height
+                type: number
+                default: 600
+              - name: layout
+                label: Image Position
+                type: string
+                options:
+                  - image-right
+                  - image-left
+                default: image-right
+              - name: vAlign
+                label: Vertical Alignment
+                type: string
+                options:
+                  - top
+                  - center
+                  - bottom
+                default: top
+              - name: textAlign
+                label: Text Alignment
+                type: string
+                options:
+                  - left
+                  - center
+                  - right
+                default: left
+              - name: ratio
+                label: Column Ratio
+                type: string
+                options:
+                  - 50-50
+                  - 60-40
+                  - 40-60
+                default: 50-50
+              - name: crop
+                label: Crop Image
+                type: boolean
+                default: false
+              - name: imageMaxWidth
+                label: Image Max Width (px)
+                type: number
+              - name: centerImage
+                label: Center Image
+                type: boolean
+                default: true
+              - name: content
+                label: Text Content
+                type: rich-text
+          - name: swiper_carousel
+            label: Swiper Carousel
+            fields:
+              - name: section
+                label: Content Section
+                type: string
+                description: e.g. "partners", "blog", "events"
+              - name: tags
+                label: Filter by Tags
+                type: list
+                description: Optional tags to filter content
+              - name: content
+                label: Section Heading
+                type: rich-text
+          - name: button
+            label: Button
+            fields:
+              - name: label
+                label: Button Label
+                type: string
+                default: Lees meer
+              - name: href
+                label: Button Link
+                type: string
+              - name: variant
+                label: Button Variant
+                type: string
+                options:
+                  - primary
+                  - secondary
+                  - dark
+                  - link
+                default: primary
+          - name: rich_text
+            label: Rich Text
+            fields:
+              - name: content
+                label: Content
+                type: rich-text
 
   # Events
   - name: events
@@ -96,7 +200,111 @@ content:
         default: false
       - name: body
         label: Body
-        type: rich-text
+        type: block
+        list: true
+        blockKey: _block
+        blocks:
+          - name: paragraph_with_image
+            label: Paragraph with Image
+            fields:
+              - name: src
+                label: Image Source
+                type: image
+              - name: alt
+                label: Image Alt Text
+                type: string
+              - name: width
+                label: Image Width
+                type: number
+                default: 800
+              - name: height
+                label: Image Height
+                type: number
+                default: 600
+              - name: layout
+                label: Image Position
+                type: string
+                options:
+                  - image-right
+                  - image-left
+                default: image-right
+              - name: vAlign
+                label: Vertical Alignment
+                type: string
+                options:
+                  - top
+                  - center
+                  - bottom
+                default: top
+              - name: textAlign
+                label: Text Alignment
+                type: string
+                options:
+                  - left
+                  - center
+                  - right
+                default: left
+              - name: ratio
+                label: Column Ratio
+                type: string
+                options:
+                  - 50-50
+                  - 60-40
+                  - 40-60
+                default: 50-50
+              - name: crop
+                label: Crop Image
+                type: boolean
+                default: false
+              - name: imageMaxWidth
+                label: Image Max Width (px)
+                type: number
+              - name: centerImage
+                label: Center Image
+                type: boolean
+                default: true
+              - name: content
+                label: Text Content
+                type: rich-text
+          - name: swiper_carousel
+            label: Swiper Carousel
+            fields:
+              - name: section
+                label: Content Section
+                type: string
+                description: e.g. "partners", "blog", "events"
+              - name: tags
+                label: Filter by Tags
+                type: list
+                description: Optional tags to filter content
+              - name: content
+                label: Section Heading
+                type: rich-text
+          - name: button
+            label: Button
+            fields:
+              - name: label
+                label: Button Label
+                type: string
+                default: Lees meer
+              - name: href
+                label: Button Link
+                type: string
+              - name: variant
+                label: Button Variant
+                type: string
+                options:
+                  - primary
+                  - secondary
+                  - dark
+                  - link
+                default: primary
+          - name: rich_text
+            label: Rich Text
+            fields:
+              - name: content
+                label: Content
+                type: rich-text
 
   # Partners
   - name: partners
@@ -182,7 +390,111 @@ content:
         default: false
       - name: body
         label: Body
-        type: rich-text
+        type: block
+        list: true
+        blockKey: _block
+        blocks:
+          - name: paragraph_with_image
+            label: Paragraph with Image
+            fields:
+              - name: src
+                label: Image Source
+                type: image
+              - name: alt
+                label: Image Alt Text
+                type: string
+              - name: width
+                label: Image Width
+                type: number
+                default: 800
+              - name: height
+                label: Image Height
+                type: number
+                default: 600
+              - name: layout
+                label: Image Position
+                type: string
+                options:
+                  - image-right
+                  - image-left
+                default: image-right
+              - name: vAlign
+                label: Vertical Alignment
+                type: string
+                options:
+                  - top
+                  - center
+                  - bottom
+                default: top
+              - name: textAlign
+                label: Text Alignment
+                type: string
+                options:
+                  - left
+                  - center
+                  - right
+                default: left
+              - name: ratio
+                label: Column Ratio
+                type: string
+                options:
+                  - 50-50
+                  - 60-40
+                  - 40-60
+                default: 50-50
+              - name: crop
+                label: Crop Image
+                type: boolean
+                default: false
+              - name: imageMaxWidth
+                label: Image Max Width (px)
+                type: number
+              - name: centerImage
+                label: Center Image
+                type: boolean
+                default: true
+              - name: content
+                label: Text Content
+                type: rich-text
+          - name: swiper_carousel
+            label: Swiper Carousel
+            fields:
+              - name: section
+                label: Content Section
+                type: string
+                description: e.g. "partners", "blog", "events"
+              - name: tags
+                label: Filter by Tags
+                type: list
+                description: Optional tags to filter content
+              - name: content
+                label: Section Heading
+                type: rich-text
+          - name: button
+            label: Button
+            fields:
+              - name: label
+                label: Button Label
+                type: string
+                default: Lees meer
+              - name: href
+                label: Button Link
+                type: string
+              - name: variant
+                label: Button Variant
+                type: string
+                options:
+                  - primary
+                  - secondary
+                  - dark
+                  - link
+                default: primary
+          - name: rich_text
+            label: Rich Text
+            fields:
+              - name: content
+                label: Content
+                type: rich-text
 
   # Site Config
   - name: config
