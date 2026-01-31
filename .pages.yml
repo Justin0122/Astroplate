@@ -63,7 +63,7 @@ content:
                 default: 600
               - name: layout
                 label: Image Position
-                type: string
+                type: select
                 options:
                   - image-right
                   - image-left
