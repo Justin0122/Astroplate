@@ -1,42 +1,305 @@
-media: media
+media: public/images
 content:
-  - name: posts
-    label: Posts
+  # Blog Posts
+  - name: blog
+    label: Blog Posts
     type: collection
-    path: '_posts'
+    path: src/content/blog
     view:
-      fields: [ title, published, date ]
+      fields: [title, date, categories, draft]
     fields:
-      - name: published
-        label: Published
-        type: boolean
-        default: true
-      - name: date
-        label: Date
-        type: date
       - name: title
         label: Title
         type: string
+      - name: meta_title
+        label: Meta Title
+        type: string
+        description: SEO meta title (optional)
+      - name: description
+        label: Description
+        type: string
+        description: Meta description for SEO
+      - name: date
+        label: Date
+        type: date
+      - name: image
+        label: Featured Image
+        type: image
+        description: Blog post featured image
+      - name: categories
+        label: Categories
+        type: list
+        default: ["others"]
+      - name: tags
+        label: Tags
+        type: list
+        default: []
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
       - name: body
         label: Body
         type: rich-text
-  - name: config
-    label: Jekyll config
-    path: _config.yml
-    type: file
+
+  # Events
+  - name: events
+    label: Events
+    type: collection
+    path: src/content/events
+    view:
+      fields: [title, date, categories, draft]
     fields:
       - name: title
-        label: Website title
+        label: Title
         type: string
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: hero_text
+        label: Hero Text
+        type: string
+      - name: meta_title
+        label: Meta Title
+        type: string
+        description: SEO meta title (optional)
       - name: description
-        label: Website description
+        label: Description
         type: string
-        description: Will be provused for any page with no description.
-      - name: url
-        label: Website URL
-        type: string
-        pattern: ^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
-      - name: cover
-        label: Preview image
+        description: Meta description for SEO
+      - name: date
+        label: Date
+        type: date
+      - name: image
+        label: Featured Image
         type: image
-        description: Image used in the social preview on social networks (e.g. Facebook, Twitter...)
+        description: Event featured image
+      - name: hero_image
+        label: Hero Image
+        type: image
+        description: Large hero image for event page
+      - name: contain
+        label: Contain Image
+        type: boolean
+        description: Use object-contain for image sizing
+      - name: categories
+        label: Categories
+        type: list
+        default: ["others"]
+      - name: tags
+        label: Tags
+        type: list
+        default: []
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Partners
+  - name: partners
+    label: Partners
+    type: collection
+    path: src/content/partners
+    view:
+      fields: [title, categories, draft]
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: hero_text
+        label: Hero Text
+        type: string
+      - name: meta_title
+        label: Meta Title
+        type: string
+        description: SEO meta title (optional)
+      - name: description
+        label: Description
+        type: string
+        description: Meta description for SEO
+      - name: date
+        label: Date
+        type: date
+      - name: image
+        label: Logo/Image
+        type: image
+        description: Partner logo or image
+      - name: hero_image
+        label: Hero Image
+        type: image
+        description: Large hero image for partner page
+      - name: contain
+        label: Contain Image
+        type: boolean
+        description: Use object-contain for image sizing
+      - name: categories
+        label: Categories
+        type: list
+        default: ["others"]
+      - name: tags
+        label: Tags
+        type: list
+        default: []
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Pages
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    view:
+      fields: [title, draft]
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: meta_title
+        label: Meta Title
+        type: string
+        description: SEO meta title (optional)
+      - name: description
+        label: Description
+        type: string
+        description: Meta description for SEO
+      - name: image
+        label: Featured Image
+        type: image
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Site Config
+  - name: config
+    label: Site Configuration
+    path: src/config/config.json
+    type: file
+    fields:
+      - name: site
+        label: Site Settings
+        type: object
+        fields:
+          - name: title
+            label: Site Title
+            type: string
+          - name: base_url
+            label: Base URL
+            type: string
+            pattern: ^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
+          - name: base_path
+            label: Base Path
+            type: string
+          - name: favicon
+            label: Favicon
+            type: image
+          - name: logo
+            label: Logo
+            type: image
+          - name: logo_darkmode
+            label: Logo (Dark Mode)
+            type: image
+          - name: logo_text
+            label: Logo Text
+            type: string
+      - name: settings
+        label: Settings
+        type: object
+        fields:
+          - name: search
+            label: Enable Search
+            type: boolean
+          - name: sticky_header
+            label: Sticky Header
+            type: boolean
+          - name: theme_switcher
+            label: Theme Switcher
+            type: boolean
+          - name: default_theme
+            label: Default Theme
+            type: string
+          - name: summary_length
+            label: Summary Length
+            type: number
+            description: Number of characters in post summaries
+      - name: announcement
+        label: Announcement Banner
+        type: object
+        fields:
+          - name: enable
+            label: Enable Announcement
+            type: boolean
+          - name: content
+            label: Announcement Content
+            type: string
+          - name: expire_days
+            label: Expire After (days)
+            type: number
+      - name: metadata
+        label: Default Metadata
+        type: object
+        fields:
+          - name: meta_author
+            label: Meta Author
+            type: string
+          - name: meta_image
+            label: Default Preview Image
+            type: image
+            description: Default image for social media previews
+          - name: meta_description
+            label: Default Meta Description
+            type: string
+
+  # Menu Config
+  - name: menu
+    label: Navigation Menu
+    path: src/config/menu.json
+    type: file
+    fields:
+      - name: main
+        label: Main Menu
+        type: list
+        fields:
+          - name: name
+            label: Label
+            type: string
+          - name: url
+            label: URL
+            type: string
+          - name: hasChildren
+            label: Has Submenu
+            type: boolean
+          - name: children
+            label: Submenu Items
+            type: list
+            fields:
+              - name: name
+                label: Label
+                type: string
+              - name: url
+                label: URL
+                type: string
+      - name: footer
+        label: Footer Menu
+        type: list
+        fields:
+          - name: name
+            label: Label
+            type: string
+          - name: url
+            label: URL
+            type: string
