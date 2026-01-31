@@ -65,8 +65,11 @@ content:
                 label: Image Position
                 type: select
                 options:
-                  - image-right
-                  - image-left
+                  values:
+                    - value: image-right
+                      label: Image Right
+                    - value: image-left
+                      label: Image Left
                 default: image-right
               - name: vAlign
                 label: Vertical Alignment
